@@ -1,4 +1,4 @@
-# SSC2018
+# 6th Annual Statistical Society of Canada Student Conference - Montr&eacute;al, QC
 
 # Reproducible research: An introduction to [knitr](http://yihui.name/knitr/) and [RMarkdown](http://rmarkdown.rstudio.com/)
 

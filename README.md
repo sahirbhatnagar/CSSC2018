@@ -1,36 +1,37 @@
-# 6th Annual Statistical Society of Canada Student Conference - Montr&eacute;al, QC
+# Having an Online Presence: Tools for Reproducible and Rapid Dissemination of Research
 
-# Reproducible research: An introduction to [knitr](http://yihui.name/knitr/) and [RMarkdown](http://rmarkdown.rstudio.com/)
+A workshop presented by [Sahir Bhatnagar](http://sahirbhatnagar.com/) (McGill University) at the [6th Annual Canadian Statistics Student Conference - Montr&eacute;al, QC](https://ssc.ca/en/meeting/sixth-annual-canadian-statistics-student-conference)
 
-A short talk presented by [Sahir Bhatnagar](http://sahirbhatnagar.com/) (McGill University) at the [Montr&eacute;al useR group](http://www.meetup.com/Montreal-R-User-Group/)
-  
-**Date**: Wednesday August 12, 18:00  
-**Location**: [Notman House](https://www.google.com/maps?f=q&hl=en&q=51+Sherbrooke+W.,+Montreal,+QC,+ca)  
-**Slides**: The slides used for this presentation can be found [here](https://github.com/sahirbhatnagar/knitr-tutorial/blob/master/slides/useR-mtl-2015.pdf)  
+
+## Details
+
+**Date**: Saturday, June 2, 2018  
+**Location**: [McGill University](http://www.mcgill.ca/)  
+**Slides**: TBA  
 **Material**: Click on the `Download ZIP` button on this page, or [fork it](https://help.github.com/articles/fork-a-repo/), or [clone it](http://stackoverflow.com/questions/651038/how-do-you-clone-a-git-repository-into-a-specific-folder)  
 
 
-----
+## Abstract
 
-A workshop presented by	[Sahir Bhatnagar](http://sahirbhatnagar.com/) (McGill University)
-  
-**Date**: Thursday,	May 28, 2015, 13:00-­‐16:00  
-**Location**: Purvis Hall, Room 25, McGill University  
-**Slides**: The slides used for this presentation can be found [here](https://github.com/sahirbhatnagar/knitr-tutorial/blob/master/slides/mcgill-knitr.pdf)
+With the ever increasing size of data and complexity of methods required to analyze them, the reproducibility of results is necessary to ensure a high quality of scientific research. At the same time, there has been a shift in the way research is disseminated. Preprint servers, blogs, GitHub and Twitter are free platforms that significantly reduce publication time enabling researchers to rapidly share ideas, generate discussion, publish code and promote their work. In this workshop I will introduce the essential tools of a reproducible workflow. Starting from a raw dataset, you will learn how to structure your analysis scripts, create dynamic documents using Rmarkdown and keep track of the changes to the analysis through version control with Git. You will then create a website and publish your results online in the form of a blog post. This workshop will be 100% interactive.
 
-Sponsored by the CRM Statistics	Laboratory and the Montreal Biostatistics Seminar Series
 
-----
+## Requirements
 
-**Description**: With the ever increasing size of data and complexity of methods required to analyze them, the reproducibility of results is necessary to ensure a high quality of scientific research. In this workshop, we will discuss the main concepts and motivations for reproducible research (RR). Mr. Bhatnagar will then introduce useful tools for RR, including [RStudio](http://www.rstudio.com/), [knitr](http://yihui.name/knitr/), and [Markdown](http://daringfireball.net/projects/markdown/syntax). We will work through several examples to see how these tools can be used to perform efficiently common tasks such as writing reports, Beamer presentations, running simulations, repetitive function calls that require single or multiple inputs to be changed, and sharing results. Basic knowledge of `R` and `LaTeX` is assumed. 
+Participants must bring their own laptops, with the following programs and packages installed (all are free):
 
-Participants must bring their own laptops, with the following programs and packages installed:
+* [R (version $\geq$ 3.4.1)](http://cran.r-project.org/)
+* [RStudio (version $\geq$ 1.1.442)](http://www.rstudio.com/products/rstudio/download/preview/)  
+* [Git](https://git-scm.com/downloads)
+* [Sign up for a GitHub Account](https://github.com/)
+* Run the following commands in `R` for required packages:
 
-* [R](http://cran.r-project.org/)
-* [RStudio Preview](http://www.rstudio.com/products/rstudio/download/preview/)
-* `R` packages `knitr`, `magrittr`, `data.table`, `ggplot2`, `devtools`
-* A working instance of `LaTeX`
-* [TeXStudio (optional)](http://texstudio.sourceforge.net/)
+```R
+install.packages("pacman")
+pacman::p_load(knitr, rmarkdown, pander, ggplot2, cowplot)
+pacman::p_load_gh('rstudio/blogdown')
+blogdown::install_hugo(force=TRUE)
+```
 
 
 ----

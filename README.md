@@ -20,8 +20,8 @@ With the ever increasing size of data and complexity of methods required to anal
 
 Participants must bring their own laptops, with the following programs and packages installed (all are free):
 
-* [R (version $\geq$ 3.4.1)](http://cran.r-project.org/)
-* [RStudio (version $\geq$ 1.1.442)](http://www.rstudio.com/products/rstudio/download/preview/)  
+* [R (version ≥ 3.4.1)](http://cran.r-project.org/)
+* [RStudio (version ≥ 1.1.442)](http://www.rstudio.com/products/rstudio/download/preview/)  
 * [Git](https://git-scm.com/downloads)
 * [Sign up for a GitHub Account](https://github.com/)
 * Run the following commands in `R` for required packages:

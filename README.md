@@ -1,4 +1,4 @@
-# Having an Online Presence: Tools for Reproducible and Rapid Dissemination of Research
+# Having an Online Presence: Tools for Reproducible and Rapid Dissemination of Research / Avoir une présence en ligne: Outils pour la diffusion rapide et reproductible de la recherche
 
 A workshop presented by [Sahir Bhatnagar](http://sahirbhatnagar.com/) (McGill University) at the [6th Annual Canadian Statistics Student Conference - Montr&eacute;al, QC](https://ssc.ca/en/meeting/sixth-annual-canadian-statistics-student-conference)
 
@@ -15,6 +15,10 @@ A workshop presented by [Sahir Bhatnagar](http://sahirbhatnagar.com/) (McGill Un
 
 With the ever increasing size of data and complexity of methods required to analyze them, the reproducibility of results is necessary to ensure a high quality of scientific research. At the same time, there has been a shift in the way research is disseminated. Preprint servers, blogs, GitHub and Twitter are free platforms that significantly reduce publication time enabling researchers to rapidly share ideas, generate discussion, publish code and promote their work. In this workshop I will introduce the essential tools of a reproducible workflow. Starting from a raw dataset, you will learn how to structure your analysis scripts, create dynamic documents using Rmarkdown and keep track of the changes to the analysis through version control with Git. You will then create a website and publish your results online in the form of a blog post. This workshop will be 100% interactive.
 
+-----
+
+
+Avec la taille toujours grandissante des données et la complexité des méthodes nécessaires pour les analyser, la reproductibilité des résultats est nécessaire pour assurer une qualité élevée de recherche scientifique. Parallèlement, la façon dont la recherche est diffusée a également changé. Les serveurs de prépublication électronique, les blogs, GitHub et Twitter sont des plateformes gratuites qui réduisent considérablement le temps de publication, permettant aux chercheurs de partager rapidement des idées, de générer des discussions, de publier du code et de promouvoir leur travail. Dans cet atelier, je présenterai les outils essentiels d'un plan de travail reproductible. À partir d'un ensemble de données brutes, vous apprendrez à structurer vos scripts d'analyse, à créer des documents dynamiques à l'aide de Rmarkdown et à suivre les changements apportés à l'analyse, grâce au contrôle de version avec Git. Par la suite, vous créerai un site Web et publierai vos résultats en ligne sous la forme d'un article de blog. Cet atelier sera 100% interactif. Les participants sont encouragés à apporter leurs propres ordinateurs.
 
 ## Requirements
 

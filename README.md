@@ -28,6 +28,7 @@ Participants must bring their own laptops, with the following programs and packa
 * [RStudio (version ≥ 1.1.442)](http://www.rstudio.com/products/rstudio/download/preview/)  
 * [Git](https://git-scm.com/downloads)
 * [Sign up for a GitHub Account](https://github.com/)
+* [GitKraken](https://www.gitkraken.com/)  
 * Run the following commands in `R` for required packages:
 
 ```R

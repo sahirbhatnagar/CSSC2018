@@ -1,6 +1,6 @@
 #########################################################
 # R Source code file for installing required packages
-# for CSSC2018
+# for CSSC2018. Hosted on github repo 'sahirbhatnagar/CSSC2018'
 # Author: Sahir Bhatnagar
 # Created: May 25, 2018
 # Updated: 

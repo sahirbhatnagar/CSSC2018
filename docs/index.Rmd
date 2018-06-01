@@ -51,7 +51,17 @@ knitr::include_graphics(path = "assets/img/qrcode.png")
 
 
 
-# Part 1: Creating a Website {.tabset .tabset-fade .tabset-pills}
+# Part 1: knitr, R Markdown, Git {.tabset .tabset-fade .tabset-pills}
+
+## Introduction
+
+
+## Example
+
+
+
+
+# Part 2: Creating a Website {.tabset .tabset-fade .tabset-pills}
 
 *************
 
@@ -84,11 +94,9 @@ pacman::p_load_gh('rstudio/blogdown')
 <br>
 
 
-### Credit 
 
-https://tclavelle.github.io/blog/blogdown_github/
-http://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html#blogs
-https://bookdown.org/yihui/blogdown/
+
+
 
 
 
@@ -168,6 +176,84 @@ After this is complete, you should quit and then reopen the project. Upon reopen
 ![](assets/img/blogdown/install/install009.png)
 
 
-## Step 3: 
+## Step 3: Publish website
 
+config.toml - The configuration file for your website. This file tells Hugo how it should render your site, as well as define its menus, and set various other site-wide parameters. This file will look different for every theme, but they will all contain some basic components.
+baseurl set this to the desired URL for your site, in this case baseurl = "https://<usernamr>.github.io/"
+title set the title for your new site. Some completely random and objective examples include “Real Leaks, Fake News”, “Gravy Fries and Putin”, and “Kellyanne’s Alternative Factory”
+description a brief description or mission of your new site, something like “Democracy Described in Data” or “Hair and Imbalanced”
+theme this should list the theme you specified when creating the site
+publishDir tell blogdown which directory it should place the rendered site in. This directory will include a copy of everything that gets generated in the public/ directory of your site’s root directory. To use the two repository method described above, set this to publishDir = "../<username>.github.io". Adjust this path to where ever you keep your <username>.github.io repository
+
+
+
+publishDir is relative to current directory. so can use ../ , or use full path "/home/sahir/git_repositories/cssc2018.github.io"
+but dont use "~/git_repositories/cssc2018.github.io"
+
+
+![](assets/img/blogdown/publish/publish001.png)
+![](assets/img/blogdown/publish/publish002.png)
+![](assets/img/blogdown/publish/publish003.png)
+![](assets/img/blogdown/publish/publish004.png)
+![](assets/img/blogdown/publish/publish005.png)
+![](assets/img/blogdown/publish/publish006.png)
+![](assets/img/blogdown/publish/publish007.png)
+![](assets/img/blogdown/publish/publish008.png)
+![](assets/img/blogdown/publish/publish009.png)
+![](assets/img/blogdown/publish/publish010.png)
+![](assets/img/blogdown/publish/publish011.png)
+![](assets/img/blogdown/publish/publish012.png)
+![](assets/img/blogdown/publish/publish013.png)
+![](assets/img/blogdown/publish/publish014.png)
+![](assets/img/blogdown/publish/publish015.png)
+![](assets/img/blogdown/publish/publish016.png)
+![](assets/img/blogdown/publish/publish017.png)
+![](assets/img/blogdown/publish/publish018.png)
+![](assets/img/blogdown/publish/publish019.png)
+![](assets/img/blogdown/publish/publish020.png)
+![](assets/img/blogdown/publish/publish021.png)
+![](assets/img/blogdown/publish/publish022.png)
+![](assets/img/blogdown/publish/publish023.png)
+![](assets/img/blogdown/publish/publish024.png)
+![](assets/img/blogdown/publish/publish025.png)
+
+
+## Step 4: Create blog post
+
+
+![](assets/img/blogdown/post/post001.png)
+![](assets/img/blogdown/post/post002.png)
+![](assets/img/blogdown/post/post003.png)
+
+
+
+
+# Part 3: Project pages {.tabset .tabset-fade .tabset-pills}
+
+## Introduction
+
+
+## Example
+
+
+
+# References 
+
+## knitr
+
+
+## R Markdown
+
+
+## blogdown
+
+https://tclavelle.github.io/blog/blogdown_github/
+http://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html#blogs
+https://bookdown.org/yihui/blogdown/
+
+
+# Acknowledgements
+
+- Maxime Turgeon  (http://maxturgeon.ca)
+- Calcul Quebec  
 

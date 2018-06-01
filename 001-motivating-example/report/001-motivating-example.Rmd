@@ -1,0 +1,94 @@
+---
+title: "Propensity Score Analysis for Surgical Approach on Radial, Distal and CRMDRM - Converted Patients In The Open Group - Open as the reference category"
+author: "by Sahir Bhatnagar"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    theme: flatly
+    highlight: tango
+    toc: true
+    toc_float:
+      collapsed: true
+      smooth_scroll: true
+    number_sections: true
+bibliography: 001-bibliography.bib
+link-citations: yes
+---
+
+```{r setup, include=FALSE}
+# can set global options here
+knitr::opts_chunk$set(echo = TRUE)
+
+# paths for data and scripts location
+data_path <- "~/git_repositories/CSSC2018/001-motivating-example/data/"
+bin_path <- "~/git_repositories/CSSC2018/001-motivating-example/bin/"
+
+# read in scripts. Note: this will not run the code. 
+# Like a 'promise'
+knitr::read_chunk(paste0(bin_path, "001-packages.R"))
+knitr::read_chunk(paste0(bin_path, "001-data.R"))
+knitr::read_chunk(paste0(bin_path, "001-analysis.R"))
+```
+
+
+```{r required-packages,echo=FALSE,warning=FALSE,message=FALSE,eval=TRUE, results='hide'}
+```
+
+
+# Introduction
+
+Identifying overweight populations is an important first step in fighting the obesity epidemic. However, accurate measure of body fat are costly and inconvenient. Therefore we are interested in determining predictors of body fat which require only a scale and a measuring tape. We analyze a dataset which contains percentage of body fat, age, weight, height and ten body circumference measurements for 251 men [@johnson1996fitting; @penrose1985generalized]. We model the data using multiple linear regression and perform various model selection techniques.
+
+# Exploratory Analysis
+
+```{r import-data}
+```
+
+
+```{r fig-pairs}
+```
+
+We will fit a model of the form
+
+\begin{multline}
+pbf1_i= \beta_0+\beta_1\tm{age}_i+\beta_2\tm{weight}_i+\beta_3\tm{height}_i+\beta_4\tm{neck}_i\\
++\beta_5\tm{chest}+\beta_6\tm{abdomen}_i+\beta_7\tm{hip}_i+\beta_8\tm{thigh}_i+\beta_9\tm{knee}_i \\
++\beta_{10}\tm{ankle}_i+ \beta_{11}\tm{bicep}_i +\beta_{12}\tm{forearm}_i +\beta_{13}\tm{wrist}_i ,  \label{eq:eq1}
+\end{multline}
+
+\section{Results}
+
+The parameter estimates of Model~\eqref{eq:eq1} and their standard errors are shown in Table~\ref{tab:results}
+<<linear-regression, results = 'asis'>>=
+@
+
+Model diagnostics are shown in Figures~\ref{fig:fig-diagnostics} and~\ref{fig:influence-plot}
+
+<<fig-diagnostics, opts.label = 'fig.large', fig.cap = 'Regression diagnostics for Model~\\eqref{eq:eq1}'>>=
+@
+
+<<influence-plot, results = 'hide', opts.label = 'fig.small',fig.cap = 'Regression influence plot for Model~\\eqref{eq:eq1}'>>=
+@
+\FloatBarrier
+Look more closely at observation 42:
+
+<<obs42, results = 'asis'>>=
+DT[42,.(pbf1,weight,height),] %>% xtable %>% print(include.rownames = FALSE)
+@
+
+\FloatBarrier
+\section{Sensitivity Analysis}
+
+We perform the same analysis as above, but with observation 42 removed
+
+<<linear-regression2, results = 'asis'>>=
+@
+
+<<fig-diagnostics2, opts.label = 'fig.large', fig.cap = 'Regression diagnostics for Model~\\eqref{eq:eq1}, with outliers removed'>>=
+@
+
+<<influence-plot2, opts.label = 'fig.small',fig.cap = 'Regression influence plot for Model~\\eqref{eq:eq1}, with outliers removed', results = 'hide'>>=
+@
+
+
+# References

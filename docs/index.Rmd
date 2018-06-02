@@ -226,6 +226,11 @@ but dont use "~/git_repositories/cssc2018.github.io"
 ![](assets/img/blogdown/post/post003.png)
 
 
+````
+```{r, eval=TRUE}`r ''`
+1 + 1
+```
+````
 
 
 # Part 3: Project pages {.tabset .tabset-fade .tabset-pills}

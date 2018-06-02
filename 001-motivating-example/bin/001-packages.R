@@ -14,6 +14,19 @@
 if (!require("pacman")) install.packages("pacman")
 
 pacman::p_load(knitr)
+
+# data loading and manipulation
 pacman::p_load(data.table)
+
+# easy plotting and tables of regression output
 pacman::p_load(sjPlot)
+
+# influencePlot
 pacman::p_load(car)
+
+# the pipe %>% 
+pacman::p_load(magrittr)
+
+# this allows you to use bookdown::html_document2 in the YAML 
+# which allows for figure labelling and referencing
+pacman::p_load(bookdown) 

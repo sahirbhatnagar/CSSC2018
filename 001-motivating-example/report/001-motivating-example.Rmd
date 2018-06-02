@@ -1,11 +1,12 @@
 ---
-title: "Propensity Score Analysis for Surgical Approach on Radial, Distal and CRMDRM - Converted Patients In The Open Group - Open as the reference category"
+title: "Predictors of Body Fat"
 author: "by Sahir Bhatnagar"
 date: "`r Sys.Date()`"
 output:
-  html_document:
+  bookdown::html_document2:
     theme: flatly
     highlight: tango
+    fig_caption: yes
     toc: true
     toc_float:
       collapsed: true
@@ -17,7 +18,15 @@ link-citations: yes
 
 ```{r setup, include=FALSE}
 # can set global options here
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+
+# you can create custom chunk options
+knitr::opts_template$set(
+  fig.large = list(fig.width = 7, fig.height = 5, fig.align = 'center', fig.pos = 'h'),
+  fig.small = list(fig.width = 6, fig.height = 4, fig.align = 'center', fig.pos = 'h'),
+  fig.full = list(fig.width = 8, fig.height = 6, fig.align = 'center', fig.pos = 'h')
+)
+
 
 # paths for data and scripts location
 data_path <- "~/git_repositories/CSSC2018/001-motivating-example/data/"
@@ -31,7 +40,7 @@ knitr::read_chunk(paste0(bin_path, "001-analysis.R"))
 ```
 
 
-```{r required-packages,echo=FALSE,warning=FALSE,message=FALSE,eval=TRUE, results='hide'}
+```{r required-packages, echo = FALSE, results = 'hide'}
 ```
 
 
@@ -39,56 +48,83 @@ knitr::read_chunk(paste0(bin_path, "001-analysis.R"))
 
 Identifying overweight populations is an important first step in fighting the obesity epidemic. However, accurate measure of body fat are costly and inconvenient. Therefore we are interested in determining predictors of body fat which require only a scale and a measuring tape. We analyze a dataset which contains percentage of body fat, age, weight, height and ten body circumference measurements for 251 men [@johnson1996fitting; @penrose1985generalized]. We model the data using multiple linear regression and perform various model selection techniques.
 
+<br>
+
+
 # Exploratory Analysis
 
 ```{r import-data}
 ```
 
+A pairs plot is presented in Figure \@ref(fig:pairs)
 
-```{r fig-pairs}
+```{r pairs, fig.cap='Pairs plot of Body Fat data', opts.label = 'fig.large'}
 ```
 
-We will fit a model of the form
+We will fit a linear regression model of the form
 
 \begin{multline}
-pbf1_i= \beta_0+\beta_1\tm{age}_i+\beta_2\tm{weight}_i+\beta_3\tm{height}_i+\beta_4\tm{neck}_i\\
-+\beta_5\tm{chest}+\beta_6\tm{abdomen}_i+\beta_7\tm{hip}_i+\beta_8\tm{thigh}_i+\beta_9\tm{knee}_i \\
-+\beta_{10}\tm{ankle}_i+ \beta_{11}\tm{bicep}_i +\beta_{12}\tm{forearm}_i +\beta_{13}\tm{wrist}_i ,  \label{eq:eq1}
+pbf1_i= \beta_0+\beta_1\textrm{age}_i+\beta_2\textrm{weight}_i+\beta_3\textrm{height}_i+\beta_4\textrm{neck}_i \\
++\beta_5\textrm{chest}+\beta_6\textrm{abdomen}_i+\beta_7\textrm{hip}_i+\beta_8\textrm{thigh}_i+\beta_9\textrm{knee}_i \\
++\beta_{10}\textrm{ankle}_i+ \beta_{11}\textrm{bicep}_i +\beta_{12}\textrm{forearm}_i +\beta_{13}\textrm{wrist}_i + \varepsilon
 \end{multline}
 
-\section{Results}
 
-The parameter estimates of Model~\eqref{eq:eq1} and their standard errors are shown in Table~\ref{tab:results}
-<<linear-regression, results = 'asis'>>=
-@
+# Results
 
-Model diagnostics are shown in Figures~\ref{fig:fig-diagnostics} and~\ref{fig:influence-plot}
+The parameter estimates of the linear model and their standard errors are shown in the table below:
 
-<<fig-diagnostics, opts.label = 'fig.large', fig.cap = 'Regression diagnostics for Model~\\eqref{eq:eq1}'>>=
-@
+<br>
 
-<<influence-plot, results = 'hide', opts.label = 'fig.small',fig.cap = 'Regression influence plot for Model~\\eqref{eq:eq1}'>>=
-@
-\FloatBarrier
+```{r fit1}
+```
+
+```{r fit1-coef, results = 'asis'}
+```
+
+<br>
+
+Model diagnostics are shown in Figures \@ref(fig:diagnostics) and \@ref(fig:influence-plot)
+
+```{r diagnostics, fig.asp = 0.7, fig.width = 6, fig.align = 'center', results='hide',fig.cap = c('Diagnostic 1','Diagnostic 2','Diagnostic 3','Diagnostic 4')}
+```
+
+<br>
+
+
+```{r influence-plot, results = 'hide', opts.label = 'fig.small', fig.cap = 'Regression influence plot'}
+```
+
+
+<br>
+
 Look more closely at observation 42:
 
-<<obs42, results = 'asis'>>=
-DT[42,.(pbf1,weight,height),] %>% xtable %>% print(include.rownames = FALSE)
-@
+```{r}
+knitr::kable(DT[42,.(pbf1,weight,height),])
+```
 
-\FloatBarrier
-\section{Sensitivity Analysis}
+It's unlikely someone weighs 205 pounds and only has a height of 29.5 inches. 
+
+<br>
+
+# Sensitivity Analysis
 
 We perform the same analysis as above, but with observation 42 removed
 
-<<linear-regression2, results = 'asis'>>=
-@
+```{r fit2}
+```
 
-<<fig-diagnostics2, opts.label = 'fig.large', fig.cap = 'Regression diagnostics for Model~\\eqref{eq:eq1}, with outliers removed'>>=
-@
 
-<<influence-plot2, opts.label = 'fig.small',fig.cap = 'Regression influence plot for Model~\\eqref{eq:eq1}, with outliers removed', results = 'hide'>>=
-@
+We compare both fits in the following table:
+
+<br>
+
+
+```{r compare-fits, results = 'asis'}
+```
+
+
 
 
 # References

@@ -14,6 +14,10 @@ editor_options:
 ```{r knitr_init, echo=FALSE, cache=FALSE}
 library(knitr)
 
+# need to make sure this is installed
+# to compile this document
+# pacman::p_load_gh("juba/rmdformats")
+
 ## Global options
 options(max.print="75")
 opts_chunk$set(echo=FALSE,
@@ -522,7 +526,7 @@ Only copy the `<user-name>/<repo-name>`:
 
 <br>
 
-**From the website repo** (i.e. the repo that will have the source code), enter the following command, where `theme` corresponds to the link of the corresponding GitHub repo:
+**From the local website repo** (i.e. the repo that will have the source code on your local machine), enter the following command, where `theme` corresponds to the link of the corresponding GitHub repo:
 
 ```{r, eval=FALSE, echo=TRUE}
 blogdown::new_site(theme = "gcushen/hugo-academic", theme_example = TRUE)
@@ -574,52 +578,248 @@ You should notice that there is now a `Build` button available:
 
 ## Step 3: Publish website
 
-config.toml - The configuration file for your website. This file tells Hugo how it should render your site, as well as define its menus, and set various other site-wide parameters. This file will look different for every theme, but they will all contain some basic components.
-baseurl set this to the desired URL for your site, in this case baseurl = "https://<usernamr>.github.io/"
-title set the title for your new site. Some completely random and objective examples include “Real Leaks, Fake News”, “Gravy Fries and Putin”, and “Kellyanne’s Alternative Factory”
-description a brief description or mission of your new site, something like “Democracy Described in Data” or “Hair and Imbalanced”
-theme this should list the theme you specified when creating the site
-publishDir tell blogdown which directory it should place the rendered site in. This directory will include a copy of everything that gets generated in the public/ directory of your site’s root directory. To use the two repository method described above, set this to publishDir = "../<username>.github.io". Adjust this path to where ever you keep your <username>.github.io repository
+<br>
 
+As explained in [this post](https://tclavelle.github.io/blog/blogdown_github/): 
 
+> User pages on GitHub require all site content (and only site content) to be on the master branch. This is problematic for blogdown sites because when Hugo builds your website it places the site content in a new folder called public/. Thus, your blog’s source and site content will be on the master branch and GitHub will be unable to render your site.  
 
-publishDir is relative to current directory. so can use ../ , or use full path "/home/sahir/git_repositories/cssc2018.github.io"
-but dont use "~/git_repositories/cssc2018.github.io"
+There are [two ways](https://tclavelle.github.io/blog/blogdown_github/) to get around this problem. In this tutorial we go with the option that requires the least amount of `Git` knowledge (the two repository method).  
 
+As explained in Step 2, we create two repositories: one for the source code of the website and another for the static `HTML` files. The figure below demonstrates that you should have the following two folders on your local machine:
 
 ![](assets/img/blogdown/publish/publish001.png)
+
+*************
+
+<br>
+
+Head over the the `website` source repo on your local machine and open the 
+`config.toml` file. This is the configuration file for your website. This file tells Hugo how it should render your site, as well as define its menus, and set various other site-wide parameters. This file will look different for every theme, but they will all contain some basic components. The two most important ones for now are:  
+
+1. `baseurl`: set this to the URL for your site `https://<user-name>.github.io/`  
+2. `publishDir`: this tells blogdown which directory it should place the static files in. This directory will include a copy of everything that gets generated in the public/ directory of your site's root directory. Set this to `publishDir = "../<user-name>.github.io"`.  
+
+Adjust this path to where ever you keep your `<user-name>.github.io` repository.  `publishDir` is relative to current directory. So you can use `../`, or use the full path (e.g. `"/home/sahir/git_repositories/cssc2018.github.io"`) but dont use `"~/git_repositories/cssc2018.github.io"`.  
+
+Feel free to change the other self-explanotory options such as `title`, `name`, `role`, `organization` ect.  
+
 ![](assets/img/blogdown/publish/publish002.png)
-![](assets/img/blogdown/publish/publish003.png)
+
+*************
+
+<br>
+
+Notice that your local folder of the `<user-name>.github.io` doesn't have many files in it prior to building the website:
+
 ![](assets/img/blogdown/publish/publish004.png)
+
+*************
+
+<br>
+
+Click on the `Build Website` button to render the site:  
+
+![](assets/img/blogdown/publish/publish003.png)
+
+
+*************
+
+<br>
+
+You should see a window of the rendered website (sometimes it shows up in the pop up windown and sometimes it doesn't, but don't worry just yet):
+
 ![](assets/img/blogdown/publish/publish005.png)
+
+*************
+
+<br>
+
+If you have properly setup the `publishDir` in the `config.toml` file, you should now see many files in your local `<user-name>.github.io` folder:
+
 ![](assets/img/blogdown/publish/publish006.png)
+
+*************
+
+<br>
+
+GitHub defaults to using [Jekyll](https://jekyllrb.com/) with website content, and this needs to be disabled since blogdown sites are built with Hugo. To disable this, include an empty file named `.nojekyll` in your GitHub repo `<user-name>.github.io`. You can do so within RStudio by opening a text file:
+
 ![](assets/img/blogdown/publish/publish007.png)
+
+*************
+
+<br>
+
+Click on the save button:
+
 ![](assets/img/blogdown/publish/publish008.png)
+
+*************
+
+<br>
+
+Save as `.nojekyll` in the root of your local repo:
+
 ![](assets/img/blogdown/publish/publish009.png)
+
+*************
+
+<br>
+
+You might not notice the `.nojekyll` file show up in RStudio, but you should be able to see it in you file explorer:
+
 ![](assets/img/blogdown/publish/publish010.png)
+
+*************
+
+<br>
+
+We now need to commit these changes and push them to GitHub. Check all the boxes in the `Staged` column:
+
 ![](assets/img/blogdown/publish/publish011.png)
+
+*************
+
+<br>
+
+Click on `commit`:
+
 ![](assets/img/blogdown/publish/publish012.png)
+
+*************
+
+<br>
+
+Enter a commit message and click on `Commit`:
+
 ![](assets/img/blogdown/publish/publish013.png)
-![](assets/img/blogdown/publish/publish014.png)
-![](assets/img/blogdown/publish/publish015.png)
+
+*************
+
+<br>
+
+
+If everything worked, you should see a window like this:
+
 ![](assets/img/blogdown/publish/publish016.png)
+
+*************
+
+<br>
+
+
+Click on `Push` which will then prompt you for your username and password:
+
 ![](assets/img/blogdown/publish/publish017.png)
+
+*************
+
+<br>
+
+
+![](assets/img/blogdown/publish/publish014.png)
+
+*************
+
+<br>
+
+
+![](assets/img/blogdown/publish/publish015.png)
+
+*************
+
+<br>
+
+
+
+
+
+If everything worked, you should see a window like this:
+
+
 ![](assets/img/blogdown/publish/publish018.png)
+
+*************
+
+<br>
+
+
+Head over to the remote repo. You should see your most recent commit message. Click on `Settings`:
+
 ![](assets/img/blogdown/publish/publish019.png)
+
+*************
+
+<br>
+
+Scroll down. You should see that your site is now published. Be sure to check the `Enforce HTTPS` box. Read more about `HTTPS` [here](https://https.cio.gov/everything/). GitHub now support `HTTPS` for custom domain names and `<user-name>.github.io` subdomains.
+
 ![](assets/img/blogdown/publish/publish020.png)
+
+*************
+
+<br>
+
+Head over to `https://<user-name>.github.io` and see your website in action!
+
 ![](assets/img/blogdown/publish/publish021.png)
+
+*************
+
+<br>
+
+Be sure to also commit and push the changes to the source code of your website:
+
 ![](assets/img/blogdown/publish/publish022.png)
+
+*************
+
+<br>
+
 ![](assets/img/blogdown/publish/publish023.png)
+
+*************
+
+<br>
+
 ![](assets/img/blogdown/publish/publish024.png)
+
+*************
+
+<br>
+
 ![](assets/img/blogdown/publish/publish025.png)
 
+*************
+
+<br>
 
 ## Step 4: Create blog post
 
+<br>
+
+The next step is to create a blog post. This step is made easy by the RStudio `Addins` menu:
 
 ![](assets/img/blogdown/post/post001.png)
+
+*************
+
+<br>
+
+Fill in the boxes. Be sure to check the `.Rmd` format:
+
 ![](assets/img/blogdown/post/post002.png)
+
+
+*************
+
+<br>
+
+You should see the following `.Rmd` file in your RStudio:
+
 ![](assets/img/blogdown/post/post003.png)
+
 
 Copy the following into the `.Rmd` file:
 
@@ -664,6 +864,8 @@ $$
 x_{FIS} =  \left(\prod_{g=1}^{6} SS_{i,g}^{C_{i,g}}\right)^\frac{1}{\sum{C_{i,g}}}
 $$ 
 ````
+
+Save the file. Click on `Build Website` and repeat the steps above (commit and push the changes of both the `website` repo and the `<user-name>.github.io` repo).
 
 
 # Part 3: Project pages {.tabset .tabset-fade .tabset-pills}

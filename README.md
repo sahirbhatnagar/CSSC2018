@@ -7,7 +7,7 @@ A workshop presented by [Sahir Bhatnagar](http://sahirbhatnagar.com/) (McGill Un
 
 **Date**: Saturday, June 2, 2018  
 **Location**: [McGill University](http://www.mcgill.ca/)  
-**Slides**: TBA  
+**Slides**: https://sahirbhatnagar.com/CSSC2018/  
 **Material**: Click on the `Download ZIP` button on this page, or [fork it](https://help.github.com/articles/fork-a-repo/), or [clone it](http://stackoverflow.com/questions/651038/how-do-you-clone-a-git-repository-into-a-specific-folder)  
 
 
